@@ -4,6 +4,10 @@ android {
     compileSdkVersion 30
     buildToolsVersion "29.0.3"
 
+    buildFeatures{
+        dataBinding = true
+    }
+
     defaultConfig {
         applicationId "com.geekbrains.coolimage"
         minSdkVersion 21
