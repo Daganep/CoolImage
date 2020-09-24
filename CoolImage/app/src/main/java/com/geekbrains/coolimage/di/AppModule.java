@@ -5,6 +5,7 @@ import android.app.Application;
 import com.geekbrains.coolimage.model.entity.PixabayResponse;
 import com.geekbrains.coolimage.model.retrofit.RetrofitApi;
 import com.geekbrains.coolimage.presenter.MainPresenter;
+import com.geekbrains.coolimage.view.recyclerview.RecyclerViewAdapter;
 
 import javax.inject.Singleton;
 
@@ -30,4 +31,8 @@ public class AppModule {
     @Singleton
     @Provides
     MainPresenter provideMainPresenter(){return new MainPresenter();}
+
+    @Singleton
+    @Provides
+    RecyclerViewAdapter provideRecyclerViewAdapter(){return new RecyclerViewAdapter();}
 }

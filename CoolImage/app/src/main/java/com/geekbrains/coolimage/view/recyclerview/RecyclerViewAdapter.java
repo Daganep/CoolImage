@@ -9,8 +9,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.geekbrains.coolimage.R;
+import com.geekbrains.coolimage.di.App;
+import com.geekbrains.coolimage.model.entity.PixabayResponse;
+
+import javax.inject.Inject;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ImageViewHolder> {
+
+    @Inject
+    PixabayResponse pixabayResponse;
+
+    public RecyclerViewAdapter(){
+        App.getAppComponent().inject(this);
+    }
 
     @NonNull
     @Override

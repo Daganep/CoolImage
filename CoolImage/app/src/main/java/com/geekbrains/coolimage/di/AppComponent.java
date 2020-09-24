@@ -3,6 +3,7 @@ package com.geekbrains.coolimage.di;
 import com.geekbrains.coolimage.model.entity.PixabayResponse;
 import com.geekbrains.coolimage.model.retrofit.RetrofitApi;
 import com.geekbrains.coolimage.presenter.MainPresenter;
+import com.geekbrains.coolimage.view.recyclerview.RecyclerViewAdapter;
 
 import javax.inject.Singleton;
 
@@ -17,5 +18,7 @@ public interface AppComponent {
     void inject(PixabayResponse pixabayResponse);
 
     void inject(MainPresenter mainPresenter);
+
+    void inject(RecyclerViewAdapter recyclerViewAdapter);
 
 }
