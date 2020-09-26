@@ -1,26 +1,31 @@
 package com.geekbrains.coolimage.view.recyclerview;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.geekbrains.coolimage.R;
-import com.geekbrains.coolimage.di.App;
-import com.geekbrains.coolimage.model.entity.PixabayResponse;
+import com.geekbrains.coolimage.model.entity.Hit;
+import com.geekbrains.coolimage.model.picasso.ImageSetter;
 
-import javax.inject.Inject;
+import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ImageViewHolder> {
 
-    @Inject
-    PixabayResponse pixabayResponse;
+    private final String TAG = "Request";
 
-    public RecyclerViewAdapter(){
-        App.getAppComponent().inject(this);
+    List<Hit> photos;
+    ImageSetter imageSetter;
+
+    public RecyclerViewAdapter(List<Hit> photos){
+        this.photos = photos;
+        imageSetter = new ImageSetter();
     }
 
     @NonNull
@@ -42,17 +47,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public int getItemCount() {
-        return 0;
+        return photos.size();
     }
 
     class ImageViewHolder extends RecyclerView.ViewHolder{
 
+        ImageView imageView;
+
         public ImageViewHolder(@NonNull View itemView) {
             super(itemView);
+            imageView = itemView.findViewById(R.id.view_holder_imageView);
         }
 
         void bind(int position){
-
+            imageSetter.setImage(photos.get(position).getWebFormatUrl(), imageView);
         }
     }
 }

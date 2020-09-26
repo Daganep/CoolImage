@@ -1,6 +1,7 @@
 package com.geekbrains.coolimage.di;
 
 import com.geekbrains.coolimage.model.entity.PixabayResponse;
+import com.geekbrains.coolimage.model.picasso.ImageSetter;
 import com.geekbrains.coolimage.model.retrofit.RetrofitApi;
 import com.geekbrains.coolimage.presenter.MainPresenter;
 import com.geekbrains.coolimage.view.recyclerview.RecyclerViewAdapter;
@@ -19,6 +20,6 @@ public interface AppComponent {
 
     void inject(MainPresenter mainPresenter);
 
-    void inject(RecyclerViewAdapter recyclerViewAdapter);
+    //void inject(ImageSetter imageSetter);
 
 }
