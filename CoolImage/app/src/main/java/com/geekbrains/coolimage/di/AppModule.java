@@ -35,8 +35,4 @@ public class AppModule {
     @Singleton
     @Provides
     MainPresenter provideMainPresenter(){return new MainPresenter();}
-
-    /*@Singleton
-    @Provides
-    ImageSetter provideImageSetter(){return new ImageSetter();}*/
 }

@@ -1,7 +1,7 @@
 package com.geekbrains.coolimage.view.recyclerview;
 
 import android.content.Context;
-import android.util.Log;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.geekbrains.coolimage.R;
 import com.geekbrains.coolimage.model.entity.Hit;
 import com.geekbrains.coolimage.model.picasso.ImageSetter;
+import com.geekbrains.coolimage.presenter.MainPresenter;
+import com.geekbrains.coolimage.view.photodetail.PhotoDetailActivity;
 
 import java.util.List;
 
@@ -20,11 +22,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private final String TAG = "Request";
 
-    List<Hit> photos;
-    ImageSetter imageSetter;
+    private List<Hit> photos;
+    private ImageSetter imageSetter;
+    private MainPresenter presenter;
 
-    public RecyclerViewAdapter(List<Hit> photos){
+    public RecyclerViewAdapter(List<Hit> photos, MainPresenter presenter){
         this.photos = photos;
+        this.presenter = presenter;
         imageSetter = new ImageSetter();
     }
 
@@ -53,13 +57,24 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     class ImageViewHolder extends RecyclerView.ViewHolder{
 
         ImageView imageView;
+        int position;
 
         public ImageViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.view_holder_imageView);
+
+            itemView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view){
+                    Intent intent = new Intent(imageView.getContext(), PhotoDetailActivity.class);
+                    intent.putExtra("URL", photos.get(position).getWebFormatUrl());
+                    imageView.getContext().startActivity(intent);
+                }
+            });
         }
 
         void bind(int position){
+            this.position = position;
             imageSetter.setImage(photos.get(position).getWebFormatUrl(), imageView);
         }
     }

@@ -48,16 +48,4 @@ public class MainPresenter extends MvpPresenter<MainView> {
         return pixabayResponse.getHits();
     }
 
-    public int getTotal(){
-        return pixabayResponse.getTotal();
-    }
-
-    public int getTotalHits(){
-        return pixabayResponse.getTotalHits();
-    }
-
-    public int getHitId(){
-        return pixabayResponse.getHits().get(0).id;
-    }
-
 }
