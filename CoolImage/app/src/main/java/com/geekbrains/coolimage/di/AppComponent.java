@@ -1,9 +1,11 @@
 package com.geekbrains.coolimage.di;
 
+import com.geekbrains.coolimage.model.Model;
 import com.geekbrains.coolimage.model.entity.PixabayResponse;
 import com.geekbrains.coolimage.model.picasso.ImageSetter;
 import com.geekbrains.coolimage.model.retrofit.RetrofitApi;
 import com.geekbrains.coolimage.presenter.MainPresenter;
+import com.geekbrains.coolimage.presenter.PhotoDetailPresenter;
 import com.geekbrains.coolimage.view.recyclerview.RecyclerViewAdapter;
 
 import javax.inject.Singleton;
@@ -19,6 +21,10 @@ public interface AppComponent {
     void inject(PixabayResponse pixabayResponse);
 
     void inject(MainPresenter mainPresenter);
+
+    void inject(Model model);
+
+    void inject(PhotoDetailPresenter photoDetailPresenter);
 
     //void inject(ImageSetter imageSetter);
 

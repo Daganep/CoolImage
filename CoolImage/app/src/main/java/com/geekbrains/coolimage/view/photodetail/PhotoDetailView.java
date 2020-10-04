@@ -1,4 +1,6 @@
 package com.geekbrains.coolimage.view.photodetail;
 
-public interface PhotoDetailView {
+import moxy.MvpView;
+
+public interface PhotoDetailView extends MvpView {
 }

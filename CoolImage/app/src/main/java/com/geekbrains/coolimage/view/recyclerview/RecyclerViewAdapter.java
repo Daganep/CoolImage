@@ -67,8 +67,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 @Override
                 public void onClick(View view){
                     Intent intent = new Intent(imageView.getContext(), PhotoDetailActivity.class);
-                    intent.putExtra("URL", photos.get(position).getWebFormatUrl());
+                    //intent.putExtra("URL", photos.get(position).getWebFormatUrl());
                     imageView.getContext().startActivity(intent);
+                    presenter.setPhotoPosition(position);
+                    presenter.setCurrentURL(photos.get(position).getWebFormatUrl());
                 }
             });
         }
