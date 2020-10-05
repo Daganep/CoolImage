@@ -1,9 +1,15 @@
 package com.geekbrains.coolimage.model.entity;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "photo_base")
 public class Hit {
+
+    @PrimaryKey
     @Expose
     @SerializedName("id")
     public int id;
@@ -25,6 +31,16 @@ public class Hit {
 
     @Expose
     public long expireTimestamp;
+
+    /*@Override
+    public String toString(){
+        return "Hit{" +
+                "id=" + id +
+                ", previewUrl'" + previewUrl + '\'' +
+                ", webFormatUrl'" + webFormatUrl + '\'' +
+                ", largeImageUrl'" + largeImageUrl + '\'' +
+                '}';
+    }*/
 
     public int getId() {
         return id;
