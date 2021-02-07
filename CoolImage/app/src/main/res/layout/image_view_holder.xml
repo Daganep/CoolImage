@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="@dimen/card_height"
+    android:layout_margin="@dimen/norm_margin">
 
     <ImageView
         android:id="@+id/view_holder_imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_margin="16dp"
-        android:contentDescription="@string/image_holder_pic_description"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_background"/>
+        android:background="@color/black"
+        android:contentDescription="@string/photo_preview" />
 
-</FrameLayout>
+</androidx.cardview.widget.CardView>

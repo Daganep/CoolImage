@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">CoolImage</string>
     <string name="image_holder_pic_description">some picture</string>
+    <string name="photo_preview">photo preview</string>
 </resources>
